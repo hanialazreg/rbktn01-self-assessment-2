@@ -31,7 +31,25 @@
 var Tree = function(value) {
   this.value = value;
   this.children = [];
+  
+  var newTree = Object.create(Tree);
+
+
+
+newTree.prototype.map = function( mapped){
+  
+  //for each node on the tree ,pass it into the mapping function and return the result in
+  // a new tree 
+  // using recursion to do the same thing with children
+
+  // mapTree contain the result of the map function
+  var mapTree = new Tree();
+  //for first node on the tree the value will passed to the map function and return the result
+  // as the first node on the map tree
+  mapTree.value = mapped(this.value);
+  // use recursion to do the same thing for children
+  mapTree.children.value = map(mapped);
+  
+  return mapTree ;
 };
-
-
-
+};
